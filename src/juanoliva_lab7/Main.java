@@ -4,6 +4,11 @@
  */
 package juanoliva_lab7;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author jr_02
@@ -15,6 +20,10 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        crearModeloTabla();
+        this.setLocationRelativeTo(null);
+        this.pack();
+        this.setVisible(true);
     }
 
     /**
@@ -39,10 +48,10 @@ public class Main extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         d_AgregarEquipo = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        bt_AceptacionAgregarEquipo = new javax.swing.JButton();
+        bt_Cancelar_AgregarEquipo = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jt_NombreEquipo_Agregar = new javax.swing.JTextField();
         jSeparator8 = new javax.swing.JSeparator();
         d_ModificarEquipo = new javax.swing.JDialog();
         jLabel8 = new javax.swing.JLabel();
@@ -68,7 +77,7 @@ public class Main extends javax.swing.JFrame {
         bt_ModificarDatos = new javax.swing.JButton();
         bt_Cancelar_ModificarDatos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table_Posiciones = new javax.swing.JTable();
+        tabla_Posiciones = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         bt_AgregarEquipo = new javax.swing.JButton();
         bt_CargarDatos = new javax.swing.JButton();
@@ -80,11 +89,11 @@ public class Main extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbox_EliminarEquipo = new javax.swing.JComboBox<>();
         bt_EliminarEquipo = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        cBox_ModificarEquipo = new javax.swing.JComboBox<>();
+        cbox_ModificarEquipo = new javax.swing.JComboBox<>();
         bt_ModificarDatosEquipo = new javax.swing.JButton();
 
         d_SimulacionPartido.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -129,14 +138,22 @@ public class Main extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel6.setText("Agregar Equipo");
 
-        jButton2.setText("Agregar");
+        bt_AceptacionAgregarEquipo.setText("Agregar");
+        bt_AceptacionAgregarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_AceptacionAgregarEquipoActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Cancelar");
+        bt_Cancelar_AgregarEquipo.setText("Cancelar");
+        bt_Cancelar_AgregarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_Cancelar_AgregarEquipoActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         jLabel7.setText("Nombre del Equipo");
-
-        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout d_AgregarEquipoLayout = new javax.swing.GroupLayout(d_AgregarEquipo.getContentPane());
         d_AgregarEquipo.getContentPane().setLayout(d_AgregarEquipoLayout);
@@ -146,12 +163,12 @@ public class Main extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(d_AgregarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(d_AgregarEquipoLayout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(bt_Cancelar_AgregarEquipo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addComponent(bt_AceptacionAgregarEquipo))
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1)
+                    .addComponent(jt_NombreEquipo_Agregar)
                     .addComponent(jSeparator8))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
@@ -165,12 +182,12 @@ public class Main extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jt_NombreEquipo_Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(d_AgregarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(44, Short.MAX_VALUE))
+                    .addComponent(bt_AceptacionAgregarEquipo)
+                    .addComponent(bt_Cancelar_AgregarEquipo))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         d_ModificarEquipo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -248,7 +265,7 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        table_Posiciones.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_Posiciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -256,21 +273,26 @@ public class Main extends javax.swing.JFrame {
                 "Equipo", "PJ", "PG", "PE", "PP", "GF", "GC", "DIF", "PTS"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(table_Posiciones);
+        jScrollPane1.setViewportView(tabla_Posiciones);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Tabla de Posiciones");
 
         bt_AgregarEquipo.setText("Agregar Equipo");
+        bt_AgregarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_AgregarEquipoActionPerformed(evt);
+            }
+        });
 
         bt_CargarDatos.setText("Cargar Datos");
 
@@ -311,10 +333,10 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jSeparator1)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbox_EliminarEquipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bt_EliminarEquipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator3)
-                            .addComponent(cBox_ModificarEquipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbox_ModificarEquipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bt_ModificarDatosEquipo, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
@@ -349,7 +371,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbox_EliminarEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bt_EliminarEquipo)
                         .addGap(17, 17, 17)
@@ -357,7 +379,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cBox_ModificarEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbox_ModificarEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bt_ModificarDatosEquipo)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -377,6 +399,38 @@ public class Main extends javax.swing.JFrame {
     private void bt_ModificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModificarDatosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bt_ModificarDatosActionPerformed
+
+    private void bt_AgregarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AgregarEquipoActionPerformed
+        d_AgregarEquipo.pack();
+        d_AgregarEquipo.setLocationRelativeTo(this);
+        d_AgregarEquipo.setVisible(true);
+    }//GEN-LAST:event_bt_AgregarEquipoActionPerformed
+
+    private void bt_Cancelar_AgregarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_Cancelar_AgregarEquipoActionPerformed
+        jt_NombreEquipo_Agregar.setText("");
+        d_AgregarEquipo.setVisible(false);
+    }//GEN-LAST:event_bt_Cancelar_AgregarEquipoActionPerformed
+
+    private void bt_AceptacionAgregarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AceptacionAgregarEquipoActionPerformed
+        String nombre = jt_NombreEquipo_Agregar.getText();
+        if (ramEquipo.size() == 0 || nombre.equals("") ) {
+            JOptionPane.showMessageDialog(this, "saliendo");
+            return;
+        }
+        boolean condicion = false;
+        for (Equipo e : ramEquipo) {
+            if (e.getNombreEquipo().toLowerCase().equals(nombre)) {
+                condicion = true;
+                break;
+            }
+        }
+        if (!condicion) {
+            Equipo nuevo = new Equipo();
+            nuevo.setNombreEquipo(nombre);
+            ramEquipo.add(nuevo);
+        }
+        
+    }//GEN-LAST:event_bt_AceptacionAgregarEquipoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,7 +468,9 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_AceptacionAgregarEquipo;
     private javax.swing.JButton bt_AgregarEquipo;
+    private javax.swing.JButton bt_Cancelar_AgregarEquipo;
     private javax.swing.JButton bt_Cancelar_ModificarDatos;
     private javax.swing.JButton bt_CargarDatos;
     private javax.swing.JButton bt_Cerrar_Simulacion;
@@ -422,9 +478,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton bt_ModificarDatos;
     private javax.swing.JButton bt_ModificarDatosEquipo;
     private javax.swing.JButton bt_SimularPartido;
-    private javax.swing.JComboBox<String> cBox_ModificarEquipo;
+    private javax.swing.JComboBox<String> cbox_EliminarEquipo;
     private javax.swing.JComboBox<String> cbox_Equipo1;
     private javax.swing.JComboBox<String> cbox_Equipo2;
+    private javax.swing.JComboBox<String> cbox_ModificarEquipo;
     private javax.swing.JDialog d_AgregarEquipo;
     private javax.swing.JDialog d_ModificarEquipo;
     private javax.swing.JDialog d_SimulacionPartido;
@@ -436,9 +493,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField ff_PartidosJugados;
     private javax.swing.JFormattedTextField ff_PartidosPerdidos;
     private javax.swing.JFormattedTextField ff_Puntos;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -467,12 +521,48 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jt_NombreEquipo_Agregar;
     private javax.swing.JLabel lb_Equipo1_Simulacion;
     private javax.swing.JLabel lb_Equipo2_Simulacion;
     private javax.swing.JLabel lb_NombreEquipo_Modificar;
     private javax.swing.JLabel lb_ResultadoEquipo1_Simulacion;
     private javax.swing.JLabel lb_ResultadoEquipo2_Simulacion;
-    private javax.swing.JTable table_Posiciones;
+    private javax.swing.JTable tabla_Posiciones;
     // End of variables declaration//GEN-END:variables
+
+    
+    //Declaracion de objetos
+    ArrayList<Equipo> ramEquipo = new ArrayList<>();
+    DefaultTableModel modeloTabla = new DefaultTableModel();
+    DefaultComboBoxModel modeloComboBoxModel = new DefaultComboBoxModel();
+    
+    public void crearModeloTabla(){
+        String []encabezado = {"Equipo", "PJ", "PG","PE","PP","GF","GC","DG","PTS"}; 
+        modeloTabla.setColumnIdentifiers(encabezado);
+        tabla_Posiciones.setModel(modeloTabla);
+    }
+    
+    
+    //Metodos de Administracion
+    public void cargarRamEnModelos(){
+        modeloTabla.setRowCount(0);
+        modeloComboBoxModel = new DefaultComboBoxModel();
+        if (!(ramEquipo.size()==0)) {
+            return;
+        }
+        for (Equipo e : ramEquipo) {
+            modeloComboBoxModel.addElement(e);
+            modeloTabla.addRow(e.obtenerArreglo());
+        }
+    }
+    
+    public void actulizarComboBoxYTabla(){
+        cargarRamEnModelos();
+        cbox_Equipo1.setModel(modeloComboBoxModel);
+        cbox_Equipo2.setModel(modeloComboBoxModel);
+        cbox_EliminarEquipo.setModel(modeloComboBoxModel);
+        cbox_ModificarEquipo.setModel(modeloComboBoxModel);
+        tabla_Posiciones.setModel(modeloTabla);
+    }
+    
 }

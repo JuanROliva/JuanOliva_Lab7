@@ -133,4 +133,10 @@ public class Equipo {
         calcularDiferencia();
         calculoPuntos();
     }
+
+    public Object[] obtenerArreglo(){
+        Object[] registroTabla = {nombreEquipo, partidosJugados,partidosGanados,
+            partidosEmpatados ,partidosPerdidos, golesFavor,golesContra,direferenciGoles,puntos};
+        return registroTabla;
+    }
 }

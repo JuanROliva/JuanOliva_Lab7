@@ -130,13 +130,13 @@
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bt_Cancelar_AgregarEquipo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="148" max="32767" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="bt_AceptacionAgregarEquipo" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel6" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jt_NombreEquipo_Agregar" alignment="1" max="32767" attributes="0"/>
                       <Component id="jSeparator8" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="46" max="32767" attributes="0"/>
@@ -153,13 +153,13 @@
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" pref="24" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jt_NombreEquipo_Agregar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bt_AceptacionAgregarEquipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bt_Cancelar_AgregarEquipo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace pref="46" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -173,15 +173,21 @@
             <Property name="text" type="java.lang.String" value="Agregar Equipo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="bt_AceptacionAgregarEquipo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_AceptacionAgregarEquipoActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="bt_Cancelar_AgregarEquipo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_Cancelar_AgregarEquipoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
@@ -191,10 +197,7 @@
             <Property name="text" type="java.lang.String" value="Nombre del Equipo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="jt_NombreEquipo_Agregar">
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator8">
         </Component>
@@ -491,10 +494,10 @@
                           <Component id="jSeparator1" max="32767" attributes="0"/>
                           <Component id="jSeparator2" alignment="1" max="32767" attributes="0"/>
                           <Component id="jLabel4" min="-2" pref="98" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cbox_EliminarEquipo" alignment="0" max="32767" attributes="0"/>
                           <Component id="bt_EliminarEquipo" max="32767" attributes="0"/>
                           <Component id="jSeparator3" max="32767" attributes="0"/>
-                          <Component id="cBox_ModificarEquipo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cbox_ModificarEquipo" alignment="0" max="32767" attributes="0"/>
                           <Component id="bt_ModificarDatosEquipo" pref="223" max="32767" attributes="0"/>
                           <Component id="jLabel5" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
                       </Group>
@@ -535,7 +538,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbox_EliminarEquipo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="bt_EliminarEquipo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
@@ -543,7 +546,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cBox_ModificarEquipo" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbox_ModificarEquipo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="bt_ModificarDatosEquipo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -562,19 +565,19 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="table_Posiciones">
+        <Component class="javax.swing.JTable" name="tabla_Posiciones">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="9" rowCount="0">
-                <Column editable="true" title="Equipo" type="java.lang.String"/>
-                <Column editable="true" title="PJ" type="java.lang.Integer"/>
-                <Column editable="true" title="PG" type="java.lang.Integer"/>
-                <Column editable="true" title="PE" type="java.lang.Integer"/>
-                <Column editable="true" title="PP" type="java.lang.Integer"/>
-                <Column editable="true" title="GF" type="java.lang.Integer"/>
-                <Column editable="true" title="GC" type="java.lang.Integer"/>
-                <Column editable="true" title="DIF" type="java.lang.Integer"/>
-                <Column editable="true" title="PTS" type="java.lang.Integer"/>
+                <Column editable="false" title="Equipo" type="java.lang.Object"/>
+                <Column editable="false" title="PJ" type="java.lang.Object"/>
+                <Column editable="false" title="PG" type="java.lang.Object"/>
+                <Column editable="false" title="PE" type="java.lang.Object"/>
+                <Column editable="false" title="PP" type="java.lang.Object"/>
+                <Column editable="false" title="GF" type="java.lang.Object"/>
+                <Column editable="false" title="GC" type="java.lang.Object"/>
+                <Column editable="false" title="DIF" type="java.lang.Object"/>
+                <Column editable="false" title="PTS" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
@@ -594,6 +597,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Agregar Equipo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_AgregarEquipoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bt_CargarDatos">
       <Properties>
@@ -647,7 +653,7 @@
         <Property name="text" type="java.lang.String" value="Eliminar Equipo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="cbox_EliminarEquipo">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
@@ -669,7 +675,7 @@
         <Property name="text" type="java.lang.String" value="Modificar Datos Equipo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cBox_ModificarEquipo">
+    <Component class="javax.swing.JComboBox" name="cbox_ModificarEquipo">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
