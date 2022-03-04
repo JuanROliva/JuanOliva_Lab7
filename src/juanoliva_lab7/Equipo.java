@@ -115,7 +115,7 @@ public class Equipo {
     
     public String registroCadena(){
         return nombreEquipo+","+partidosJugados+","+partidosGanados+","+
-                partidosEmpatados+partidosPerdidos+","+golesFavor+","+
+                partidosEmpatados+","+partidosPerdidos+","+golesFavor+","+
                 golesContra+","+direferenciGoles+","+puntos+"\n";
     }
     

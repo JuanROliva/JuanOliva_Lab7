@@ -26,6 +26,8 @@ public class Main extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.pack();
         this.setVisible(true);
+        String path = "./BaseDatos.txt";
+        bdt = new BaseDatosTexto(path);
     }
 
     /**
@@ -297,6 +299,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         bt_CargarDatos.setText("Cargar Datos");
+        bt_CargarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_CargarDatosActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setText("Opciones");
@@ -455,23 +462,32 @@ public class Main extends javax.swing.JFrame {
             return;
         }
         
+        Equipo e1 = (Equipo)cbox_Equipo1.getSelectedItem();
+        Equipo e2 = (Equipo)cbox_Equipo2.getSelectedItem();
+        
         d_SimulacionPartido.pack();
         d_SimulacionPartido.setLocationRelativeTo(this);
         d_SimulacionPartido.setVisible(true);
-        lb_Equipo1_Simulacion.setText(cbox_Equipo1.getSelectedItem().toString());
-        lb_Equipo2_Simulacion.setText(cbox_Equipo2.getSelectedItem().toString());
+        lb_Equipo1_Simulacion.setText(e1.toString());
+        lb_Equipo2_Simulacion.setText(e2.toString());
         int golEquipo1 = simulacionGoles();
         int golEquipo2 = simulacionGoles();
         lb_ResultadoEquipo1_Simulacion.setText(String.valueOf(golEquipo1));
         lb_ResultadoEquipo2_Simulacion.setText(String.valueOf(golEquipo2));
         
-        
+        if (rootPaneCheckingEnabled) {
+            
+        }
         
         
         
         
         
     }//GEN-LAST:event_bt_SimularPartidoActionPerformed
+
+    private void bt_CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CargarDatosActionPerformed
+        bdt.cargarArchivo();
+    }//GEN-LAST:event_bt_CargarDatosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -574,6 +590,7 @@ public class Main extends javax.swing.JFrame {
     
     //Declaracion de objetos
     ArrayList<Equipo> ramEquipo = new ArrayList<>();
+    BaseDatosTexto bdt;
     DefaultTableModel modeloTabla = new DefaultTableModel();
     DefaultComboBoxModel modelocbox_Equipo1 = new DefaultComboBoxModel();
     DefaultComboBoxModel modelocbox_Equipo2 = new DefaultComboBoxModel();
@@ -616,6 +633,7 @@ public class Main extends javax.swing.JFrame {
         cbox_EliminarEquipo.setModel(modelocbox_EliminarEquipo);
         cbox_ModificarEquipo.setModel(modelocbox_ModificarEquipo);
         tabla_Posiciones.setModel(modeloTabla);
+        bdt.guardarArchivo(ramEquipo);
     }
     
     public int simulacionGoles(){
