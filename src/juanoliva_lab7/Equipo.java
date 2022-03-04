@@ -13,8 +13,11 @@ public class Equipo {
     private int direferenciGoles;
     private int puntos;
 
-    public Equipo(String nombreEquipo) {
-        this.nombreEquipo = nombreEquipo;
+    public Equipo() {
+    }
+    
+    public Equipo(String cadenaRegistro){
+        this.cadenaRegistro(cadenaRegistro);
     }
 
     public String getNombreEquipo() {
@@ -61,16 +64,24 @@ public class Equipo {
         return golesFavor;
     }
 
-    public void setGolesFavor(int golesFavor) {
-        this.golesFavor = golesFavor;
+    public void setGolesFavor(int golesFavor) throws Exception {
+        if (golesFavor > 0) {
+            this.golesFavor = golesFavor;
+        }else{
+            throw new Exception("Los goles a favor deben ser positivos");
+        }
     }
 
     public int getGolesContra() {
         return golesContra;
     }
 
-    public void setGolesContra(int golesContra) {
-        this.golesContra = golesContra;
+    public void setGolesContra(int golesContra) throws Exception {
+        if (golesContra > 0) {
+            this.golesContra = golesContra;
+        }else{
+            throw new Exception("Los goles en contra deben ser positivos");
+        }
     }
 
     public int getDireferenciGoles() {
@@ -94,7 +105,15 @@ public class Equipo {
         return nombreEquipo;
     }
     
-    public String resitroCadena(){
+    public void calcularDiferencia(){
+        direferenciGoles = golesFavor - golesContra;
+    }
+    
+    public void calculoPuntos(){
+        puntos = (partidosGanados*3)+(partidosEmpatados*2);
+    }
+    
+    public String registroCadena(){
         return nombreEquipo+","+partidosJugados+","+partidosGanados+","+
                 partidosEmpatados+partidosPerdidos+","+golesFavor+","+
                 golesContra+","+direferenciGoles+","+puntos+"\n";
@@ -111,5 +130,7 @@ public class Equipo {
         golesFavor = registro.nextInt();
         golesContra = registro.nextInt();
         puntos = registro.nextInt();
+        calcularDiferencia();
+        calculoPuntos();
     }
 }
