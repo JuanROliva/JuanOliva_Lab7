@@ -65,6 +65,8 @@ public class Main extends javax.swing.JFrame {
         ff_GolesContra = new javax.swing.JFormattedTextField();
         ff_DiferenciaGoles = new javax.swing.JFormattedTextField();
         ff_Puntos = new javax.swing.JFormattedTextField();
+        bt_ModificarDatos = new javax.swing.JButton();
+        bt_Cancelar_ModificarDatos = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_Posiciones = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -171,128 +173,78 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
+        d_ModificarEquipo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setText("Modificar Datos del Equipo");
+        d_ModificarEquipo.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 30, 331, -1));
 
         lb_NombreEquipo_Modificar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         lb_NombreEquipo_Modificar.setText("Nombre Equipo");
+        d_ModificarEquipo.getContentPane().add(lb_NombreEquipo_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 84, 161, -1));
 
         jLabel11.setText("Partidos Jugados:");
+        d_ModificarEquipo.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 118, 124, -1));
 
         jLabel12.setText("Partidos Ganados:");
+        d_ModificarEquipo.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 152, 124, -1));
 
         jLabel13.setText("Partidos Empatados: ");
+        d_ModificarEquipo.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 186, 124, -1));
 
         jLabel14.setText("Partidos Perdidos:");
+        d_ModificarEquipo.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 220, 124, -1));
 
         jLabel15.setText("Goles a Favor:");
+        d_ModificarEquipo.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 118, 86, -1));
 
         jLabel16.setText("Goles en Contra:");
+        d_ModificarEquipo.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 152, -1, -1));
 
         jLabel17.setText("Difencia Goles: ");
+        d_ModificarEquipo.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 186, 86, -1));
 
         jLabel18.setText("Puntos: ");
+        d_ModificarEquipo.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 220, 86, -1));
+        d_ModificarEquipo.getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 61, 321, 1));
 
         ff_PartidosJugados.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        d_ModificarEquipo.getContentPane().add(ff_PartidosJugados, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 115, 79, -1));
 
         ff_PartidosGanados.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        d_ModificarEquipo.getContentPane().add(ff_PartidosGanados, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 149, 79, -1));
 
         ff_PartidosEmpatados.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        d_ModificarEquipo.getContentPane().add(ff_PartidosEmpatados, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 183, 79, -1));
 
         ff_PartidosPerdidos.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        d_ModificarEquipo.getContentPane().add(ff_PartidosPerdidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 217, 79, -1));
+        d_ModificarEquipo.getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 68, 463, 10));
 
         ff_GolesFavor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        d_ModificarEquipo.getContentPane().add(ff_GolesFavor, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 115, 79, -1));
 
         ff_GolesContra.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        d_ModificarEquipo.getContentPane().add(ff_GolesContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 149, 79, -1));
 
         ff_DiferenciaGoles.setEditable(false);
         ff_DiferenciaGoles.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        d_ModificarEquipo.getContentPane().add(ff_DiferenciaGoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 183, 79, -1));
 
+        ff_Puntos.setEditable(false);
         ff_Puntos.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        d_ModificarEquipo.getContentPane().add(ff_Puntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 217, 79, -1));
 
-        javax.swing.GroupLayout d_ModificarEquipoLayout = new javax.swing.GroupLayout(d_ModificarEquipo.getContentPane());
-        d_ModificarEquipo.getContentPane().setLayout(d_ModificarEquipoLayout);
-        d_ModificarEquipoLayout.setHorizontalGroup(
-            d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(d_ModificarEquipoLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(d_ModificarEquipoLayout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lb_NombreEquipo_Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, d_ModificarEquipoLayout.createSequentialGroup()
-                            .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ff_PartidosJugados, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ff_PartidosGanados, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ff_PartidosEmpatados, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ff_PartidosPerdidos, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(56, 56, 56)
-                            .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ff_GolesFavor, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ff_GolesContra, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ff_DiferenciaGoles, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ff_Puntos, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jSeparator10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        d_ModificarEquipoLayout.setVerticalGroup(
-            d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(d_ModificarEquipoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(d_ModificarEquipoLayout.createSequentialGroup()
-                        .addComponent(lb_NombreEquipo_Modificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel15)
-                            .addComponent(ff_PartidosJugados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel16)
-                            .addComponent(ff_PartidosGanados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel17)
-                            .addComponent(ff_PartidosEmpatados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(d_ModificarEquipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel18)
-                            .addComponent(ff_PartidosPerdidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(d_ModificarEquipoLayout.createSequentialGroup()
-                        .addComponent(ff_GolesFavor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ff_GolesContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ff_DiferenciaGoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ff_Puntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(272, Short.MAX_VALUE))
-        );
+        bt_ModificarDatos.setText("Modificar");
+        bt_ModificarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_ModificarDatosActionPerformed(evt);
+            }
+        });
+        d_ModificarEquipo.getContentPane().add(bt_ModificarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, -1));
+
+        bt_Cancelar_ModificarDatos.setText("Cancelar");
+        d_ModificarEquipo.getContentPane().add(bt_Cancelar_ModificarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -422,6 +374,10 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bt_Cerrar_SimulacionActionPerformed
 
+    private void bt_ModificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModificarDatosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_ModificarDatosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -459,9 +415,11 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_AgregarEquipo;
+    private javax.swing.JButton bt_Cancelar_ModificarDatos;
     private javax.swing.JButton bt_CargarDatos;
     private javax.swing.JButton bt_Cerrar_Simulacion;
     private javax.swing.JButton bt_EliminarEquipo;
+    private javax.swing.JButton bt_ModificarDatos;
     private javax.swing.JButton bt_ModificarDatosEquipo;
     private javax.swing.JButton bt_SimularPartido;
     private javax.swing.JComboBox<String> cBox_ModificarEquipo;
