@@ -5,6 +5,8 @@
 package juanoliva_lab7;
 
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -302,6 +304,11 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setText("Simulacion de Partidos");
 
         bt_SimularPartido.setText("Simular Partido");
+        bt_SimularPartido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_SimularPartidoActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Eliminar Equipo");
 
@@ -413,24 +420,58 @@ public class Main extends javax.swing.JFrame {
 
     private void bt_AceptacionAgregarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AceptacionAgregarEquipoActionPerformed
         String nombre = jt_NombreEquipo_Agregar.getText();
-        if (ramEquipo.size() == 0 || nombre.equals("") ) {
-            JOptionPane.showMessageDialog(this, "saliendo");
+        if (nombre.equals("") ) {
             return;
         }
         boolean condicion = false;
-        for (Equipo e : ramEquipo) {
-            if (e.getNombreEquipo().toLowerCase().equals(nombre)) {
-                condicion = true;
-                break;
+        if (rootPaneCheckingEnabled) {
+            for (Equipo e : ramEquipo) {
+                if (e.getNombreEquipo().toLowerCase().equals(nombre)) {
+                    condicion = true;
+                    break;
+                }
             }
         }
         if (!condicion) {
             Equipo nuevo = new Equipo();
             nuevo.setNombreEquipo(nombre);
             ramEquipo.add(nuevo);
+            JOptionPane.showMessageDialog(d_AgregarEquipo, "Equipo Agregado Exitosamente");
+            d_AgregarEquipo.setVisible(false);
+            actulizarComboBoxYTabla();
         }
         
+        System.out.println(ramEquipo);
+        
     }//GEN-LAST:event_bt_AceptacionAgregarEquipoActionPerformed
+
+    private void bt_SimularPartidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_SimularPartidoActionPerformed
+        if (ramEquipo.size()<=1) {
+            JOptionPane.showMessageDialog(this, "No tiene tiene susfientes equipos registrados");
+            return;
+        }
+        if (cbox_Equipo1.getSelectedItem() == cbox_Equipo2.getSelectedItem()) {
+            JOptionPane.showMessageDialog(this, "Seleccione Equipos Diferentes");
+            return;
+        }
+        
+        d_SimulacionPartido.pack();
+        d_AgregarEquipo.setLocationRelativeTo(this);
+        lb_Equipo1_Simulacion.setText(cbox_Equipo1.getSelectedItem().toString());
+        lb_Equipo2_Simulacion.setText(cbox_Equipo2.getSelectedItem().toString());
+        int golEquipo1 = simulacionGoles();
+        int golEquipo2 = simulacionGoles();
+        lb_ResultadoEquipo1_Simulacion.setText(String.valueOf(golEquipo1));
+        lb_ResultadoEquipo2_Simulacion.setText(String.valueOf(golEquipo2));
+        d_SimulacionPartido.setVisible(true);
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_bt_SimularPartidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -534,8 +575,14 @@ public class Main extends javax.swing.JFrame {
     //Declaracion de objetos
     ArrayList<Equipo> ramEquipo = new ArrayList<>();
     DefaultTableModel modeloTabla = new DefaultTableModel();
-    DefaultComboBoxModel modeloComboBoxModel = new DefaultComboBoxModel();
+    DefaultComboBoxModel modelocbox_Equipo1 = new DefaultComboBoxModel();
+    DefaultComboBoxModel modelocbox_Equipo2 = new DefaultComboBoxModel();
+    DefaultComboBoxModel modelocbox_EliminarEquipo = new DefaultComboBoxModel();
+    DefaultComboBoxModel modelocbox_ModificarEquipo = new DefaultComboBoxModel();
     
+    
+    
+    //Metodos de Administracion
     public void crearModeloTabla(){
         String []encabezado = {"Equipo", "PJ", "PG","PE","PP","GF","GC","DG","PTS"}; 
         modeloTabla.setColumnIdentifiers(encabezado);
@@ -546,23 +593,34 @@ public class Main extends javax.swing.JFrame {
     //Metodos de Administracion
     public void cargarRamEnModelos(){
         modeloTabla.setRowCount(0);
-        modeloComboBoxModel = new DefaultComboBoxModel();
-        if (!(ramEquipo.size()==0)) {
+        DefaultComboBoxModel modelocbox_Equipo1 = new DefaultComboBoxModel();
+        DefaultComboBoxModel modelocbox_Equipo2 = new DefaultComboBoxModel();
+        DefaultComboBoxModel modelocbox_EliminarEquipo = new DefaultComboBoxModel();
+        DefaultComboBoxModel modelocbox_ModificarEquipo = new DefaultComboBoxModel();
+        if (ramEquipo.size()==0) {
             return;
         }
         for (Equipo e : ramEquipo) {
-            modeloComboBoxModel.addElement(e);
             modeloTabla.addRow(e.obtenerArreglo());
+            modelocbox_Equipo1.addElement(e);
+            modelocbox_Equipo2.addElement(e);
+            modelocbox_EliminarEquipo.addElement(e);
+            modelocbox_ModificarEquipo.addElement(e);
         }
     }
     
     public void actulizarComboBoxYTabla(){
         cargarRamEnModelos();
-        cbox_Equipo1.setModel(modeloComboBoxModel);
-        cbox_Equipo2.setModel(modeloComboBoxModel);
-        cbox_EliminarEquipo.setModel(modeloComboBoxModel);
-        cbox_ModificarEquipo.setModel(modeloComboBoxModel);
+        cbox_Equipo1.setModel(modelocbox_Equipo1);
+        cbox_Equipo2.setModel(modelocbox_Equipo2);
+        cbox_EliminarEquipo.setModel(modelocbox_EliminarEquipo);
+        cbox_ModificarEquipo.setModel(modelocbox_ModificarEquipo);
         tabla_Posiciones.setModel(modeloTabla);
+    }
+    
+    public int simulacionGoles(){
+        Random aleatorio = new Random();
+        return aleatorio.nextInt(5);
     }
     
 }
