@@ -139,4 +139,28 @@ public class Equipo {
             partidosEmpatados ,partidosPerdidos, golesFavor,golesContra,direferenciGoles,puntos};
         return registroTabla;
     }
+    
+    public void agregarPartidoJugado(){
+        partidosJugados++;
+    }
+    
+    public void agregarGane(){
+        partidosGanados++;
+    }
+    
+    public void agregarPerdida(){
+        partidosPerdidos++;
+    }
+    
+    public void agregarEmpate(){
+        partidosEmpatados++;
+    }
+    
+    public void agregarGolesFavor(int golesFavor){
+        this.golesFavor += golesFavor;
+    }
+    
+    public void agregarGolesContra (int golesContra){
+        this.golesContra += golesContra;
+    }
 }

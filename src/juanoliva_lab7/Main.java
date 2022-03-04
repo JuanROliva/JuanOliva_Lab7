@@ -400,7 +400,7 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_Cerrar_SimulacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_Cerrar_SimulacionActionPerformed
-        // TODO add your handling code here:
+        d_SimulacionPartido.setVisible(false);
     }//GEN-LAST:event_bt_Cerrar_SimulacionActionPerformed
 
     private void bt_ModificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ModificarDatosActionPerformed
@@ -456,14 +456,14 @@ public class Main extends javax.swing.JFrame {
         }
         
         d_SimulacionPartido.pack();
-        d_AgregarEquipo.setLocationRelativeTo(this);
+        d_SimulacionPartido.setLocationRelativeTo(this);
+        d_SimulacionPartido.setVisible(true);
         lb_Equipo1_Simulacion.setText(cbox_Equipo1.getSelectedItem().toString());
         lb_Equipo2_Simulacion.setText(cbox_Equipo2.getSelectedItem().toString());
         int golEquipo1 = simulacionGoles();
         int golEquipo2 = simulacionGoles();
         lb_ResultadoEquipo1_Simulacion.setText(String.valueOf(golEquipo1));
         lb_ResultadoEquipo2_Simulacion.setText(String.valueOf(golEquipo2));
-        d_SimulacionPartido.setVisible(true);
         
         
         
@@ -592,14 +592,14 @@ public class Main extends javax.swing.JFrame {
     
     //Metodos de Administracion
     public void cargarRamEnModelos(){
-        modeloTabla.setRowCount(0);
-        DefaultComboBoxModel modelocbox_Equipo1 = new DefaultComboBoxModel();
-        DefaultComboBoxModel modelocbox_Equipo2 = new DefaultComboBoxModel();
-        DefaultComboBoxModel modelocbox_EliminarEquipo = new DefaultComboBoxModel();
-        DefaultComboBoxModel modelocbox_ModificarEquipo = new DefaultComboBoxModel();
         if (ramEquipo.size()==0) {
             return;
         }
+        modeloTabla.setRowCount(0);
+        modelocbox_Equipo1 = new DefaultComboBoxModel();
+        modelocbox_Equipo2 = new DefaultComboBoxModel();
+        modelocbox_EliminarEquipo = new DefaultComboBoxModel();
+        modelocbox_ModificarEquipo = new DefaultComboBoxModel();
         for (Equipo e : ramEquipo) {
             modeloTabla.addRow(e.obtenerArreglo());
             modelocbox_Equipo1.addElement(e);
