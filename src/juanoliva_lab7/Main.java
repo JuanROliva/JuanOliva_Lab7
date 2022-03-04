@@ -28,6 +28,7 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(true);
         String path = "./BaseDatos.txt";
         bdt = new BaseDatosTexto(path);
+        cargarDatos();
     }
 
     /**
@@ -445,7 +446,7 @@ public class Main extends javax.swing.JFrame {
             ramEquipo.add(nuevo);
             JOptionPane.showMessageDialog(d_AgregarEquipo, "Equipo Agregado Exitosamente");
             d_AgregarEquipo.setVisible(false);
-            actulizarComboBoxYTabla();
+            actualizarComboBoxYTabla();
         }
         
         System.out.println(ramEquipo);
@@ -486,7 +487,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_SimularPartidoActionPerformed
 
     private void bt_CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CargarDatosActionPerformed
-        bdt.cargarArchivo();
+        cargarDatos();
     }//GEN-LAST:event_bt_CargarDatosActionPerformed
 
     /**
@@ -609,6 +610,7 @@ public class Main extends javax.swing.JFrame {
     
     //Metodos de Administracion
     public void cargarRamEnModelos(){
+        bdt.cargarArchivo();
         if (ramEquipo.size()==0) {
             return;
         }
@@ -626,7 +628,7 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
-    public void actulizarComboBoxYTabla(){
+    public void actualizarComboBoxYTabla(){
         cargarRamEnModelos();
         cbox_Equipo1.setModel(modelocbox_Equipo1);
         cbox_Equipo2.setModel(modelocbox_Equipo2);
@@ -641,4 +643,13 @@ public class Main extends javax.swing.JFrame {
         return aleatorio.nextInt(5);
     }
     
+    
+    public void cargarDatos(){
+        bdt.cargarArchivo();
+        ramEquipo = new ArrayList<>();
+        for (Equipo registroEquipo : bdt.getRegistroEquipos()) {
+            ramEquipo.add(registroEquipo);
+        }
+        actualizarComboBoxYTabla();
+    }
 }
